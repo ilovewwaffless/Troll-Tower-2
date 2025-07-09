@@ -56,6 +56,24 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
+   Name = "Torture All",
+   Callback = function()
+      while task.wait(0.1) do
+        for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+          if player ~= game:GetService("Players").LocalPlayer and player.Character then
+            local args = {
+            "slash",
+            player.Character,
+            vector.create(0, -math.huge, 0)
+         }
+         game:GetService("Players").LocalPlayer.Backpack:WaitForChild("FreeSlap"):WaitForChild("Event"):FireServer(unpack(args))
+        end
+      end
+    end
+   end,
+})
+
+local Button = Tab:CreateButton({
    Name = "Finish All",
    Callback = function()
          for _, player in pairs(game:GetService("Players"):GetPlayers()) do
