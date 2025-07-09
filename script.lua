@@ -159,8 +159,8 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
    Name = "Torture",
    Callback = function()
-   while task.wait(0.1) do
    local prey = game:GetService("Players").LocalPlayer.PlayerGui.Troll.Spectate.Player.Value
+   while task.wait(0.1) do
 
       local args = {
          "slash",
