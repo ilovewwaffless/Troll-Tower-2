@@ -157,6 +157,22 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
+   Name = "Kill",
+   Callback = function()
+   while task.wait(0.1) do
+   local prey = game:GetService("Players").LocalPlayer.PlayerGui.Troll.Spectate.Player.Value
+
+      local args = {
+         "slash",
+         game.Players:FindFirstChild(prey).Character,
+         vector.create(0, -math.huge, 0)
+      }
+      game:GetService("Players").LocalPlayer.Backpack:WaitForChild("FreeSlap"):WaitForChild("Event"):FireServer(unpack(args))
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
    Name = "Fly",
    Callback = function()
    local prey = game:GetService("Players").LocalPlayer.PlayerGui.Troll.Spectate.Player.Value
